@@ -34,8 +34,6 @@ fun MainNavigation() {
         composable(RouteNameScreen.Login.route) { LoginScreen(navController) }
         composable(RouteNameScreen.SignUp.route) { SignUpScreen(navController) }
 
-        composable(RouteNameScreen.Home.route) { HomeScreen(navController) }
-
         composable(RouteNameScreen.MyBottombar.route) { MyBottombar(navController) }
 
         // các màn hình k liên quan đến bottom navigation
