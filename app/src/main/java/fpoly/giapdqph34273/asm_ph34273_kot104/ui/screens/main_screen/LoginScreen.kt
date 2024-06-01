@@ -1,9 +1,8 @@
-package fpoly.giapdqph34273.asm_ph34273_kot104
+package fpoly.giapdqph34273.asm_ph34273_kot104.ui.screens.main_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -48,11 +47,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import androidx.navigation.NavController
+import fpoly.giapdqph34273.asm_ph34273_kot104.R
+import fpoly.giapdqph34273.asm_ph34273_kot104.available.RouteNameScreen
 import kotlinx.coroutines.launch
 
 
 @Composable
-fun Login(navController: NavController) {
+fun LoginScreen(navController: NavController) {
     preview(navController)
 }
 
@@ -219,7 +220,7 @@ private fun getLayout(navController: NavController? = null) {
                                 snackbarHostState.showSnackbar("Không được để trống")
                             }
                         } else {
-                            navController?.navigate(Screen.MyBottombar.route)
+                            navController?.navigate(RouteNameScreen.MyBottombar.route)
                         }
                     },
                     colors = ButtonDefaults.buttonColors(
@@ -255,7 +256,7 @@ private fun getLayout(navController: NavController? = null) {
 @Composable
 private fun chuyenSangDangKy(navController: NavController? = null) {
     TextButton(onClick = {
-        navController?.navigate(Screen.SignUp.route)
+        navController?.navigate(RouteNameScreen.SignUp.route)
     }) {
         Text(
             text = "SIGN UP",

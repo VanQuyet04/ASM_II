@@ -1,4 +1,4 @@
-package fpoly.giapdqph34273.asm_ph34273_kot104
+package fpoly.giapdqph34273.asm_ph34273_kot104.navigation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.height
@@ -19,16 +19,24 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-
+import fpoly.giapdqph34273.asm_ph34273_kot104.R
+import fpoly.giapdqph34273.asm_ph34273_kot104.ui.screens.bottom_screen.HomeScreen
+import fpoly.giapdqph34273.asm_ph34273_kot104.available.RouteNameScreen
+import fpoly.giapdqph34273.asm_ph34273_kot104.ui.screens.bottom_screen.FavouriteScreen
+import fpoly.giapdqph34273.asm_ph34273_kot104.ui.screens.bottom_screen.NotificationScreen
+import fpoly.giapdqph34273.asm_ph34273_kot104.ui.screens.bottom_screen.ProfileScreen
 
 @Preview(showBackground = true)
 @Composable
 fun MyBottombar(navCtrl: NavController? = null) {
+
     val navController = rememberNavController()
-    val selected = remember { mutableStateOf(Screen.Home.route) }
+
+    val selected = remember { mutableStateOf(RouteNameScreen.Home.route) }
 
     Scaffold(
         bottomBar = {
+            // custom bottombar
             BottomAppBar(
                 containerColor = Color.White,
                 modifier = Modifier
@@ -38,8 +46,8 @@ fun MyBottombar(navCtrl: NavController? = null) {
                 // home
                 IconButton(
                     onClick = {
-                        selected.value = Screen.Home.route
-                        navController.navigate(Screen.Home.route) {
+                        selected.value = RouteNameScreen.Home.route
+                        navController.navigate(RouteNameScreen.Home.route) {
                             popUpTo(0)
                         }
                     },
@@ -48,7 +56,7 @@ fun MyBottombar(navCtrl: NavController? = null) {
                 ) {
 
                     Image(
-                        painter = painterResource(id = if (selected.value == Screen.Home.route) R.drawable.black_home_icon else R.drawable.home_icon),
+                        painter = painterResource(id = if (selected.value == RouteNameScreen.Home.route) R.drawable.black_home_icon else R.drawable.home_icon),
                         contentDescription = null,
                         modifier = Modifier
                             .size(26.dp)
@@ -58,8 +66,8 @@ fun MyBottombar(navCtrl: NavController? = null) {
                 // favorite
                 IconButton(
                     onClick = {
-                        selected.value = Screen.Favorite.route
-                        navController.navigate(Screen.Favorite.route) {
+                        selected.value = RouteNameScreen.Favorite.route
+                        navController.navigate(RouteNameScreen.Favorite.route) {
                             popUpTo(0)
                         }
                     },
@@ -67,7 +75,7 @@ fun MyBottombar(navCtrl: NavController? = null) {
                         .weight(1f)
                 ) {
                     Image(
-                        painter = painterResource(id = if (selected.value == Screen.Favorite.route) R.drawable.black_favourite_icon else R.drawable.favourite_icon),
+                        painter = painterResource(id = if (selected.value == RouteNameScreen.Favorite.route) R.drawable.black_favourite_icon else R.drawable.favourite_icon),
                         contentDescription = null,
                         modifier = Modifier
                             .size(26.dp)
@@ -76,8 +84,8 @@ fun MyBottombar(navCtrl: NavController? = null) {
 
                 IconButton(
                     onClick = {
-                        selected.value = Screen.Notification.route
-                        navController.navigate(Screen.Notification.route) {
+                        selected.value = RouteNameScreen.Notification.route
+                        navController.navigate(RouteNameScreen.Notification.route) {
                             popUpTo(0)
                         }
                     },
@@ -85,7 +93,7 @@ fun MyBottombar(navCtrl: NavController? = null) {
                         .weight(1f)
                 ) {
                     Image(
-                        painter = painterResource(id = if (selected.value == Screen.Notification.route) R.drawable.black_notification_icon else R.drawable.notification_icon),
+                        painter = painterResource(id = if (selected.value == RouteNameScreen.Notification.route) R.drawable.black_notification_icon else R.drawable.notification_icon),
                         contentDescription = null,
                         modifier = Modifier
                             .size(26.dp)
@@ -94,8 +102,8 @@ fun MyBottombar(navCtrl: NavController? = null) {
 
                 IconButton(
                     onClick = {
-                        selected.value = Screen.Profile.route
-                        navController.navigate(Screen.Profile.route) {
+                        selected.value = RouteNameScreen.Profile.route
+                        navController.navigate(RouteNameScreen.Profile.route) {
                             popUpTo(0)
                         }
                     },
@@ -103,31 +111,37 @@ fun MyBottombar(navCtrl: NavController? = null) {
                         .weight(1f)
                 ) {
                     Image(
-                        painter = painterResource(id = if (selected.value == Screen.Profile.route) R.drawable.black_profile_icon else R.drawable.profile_icon),
+                        painter = painterResource(id = if (selected.value == RouteNameScreen.Profile.route) R.drawable.black_profile_icon else R.drawable.profile_icon),
                         contentDescription = null,
                         modifier = Modifier
                             .size(26.dp)
                     )
                 }
             }
+            // sử dụng navHostController đc tạo bởi remember
+
         }
     ) {
         NavHost(
             navController = navController,
-            startDestination = Screen.Home.route,
+            // navController trong navHost sẽ nhận navHost tạo ra từ remember,
+            // còn ở trong màn home sẽ nhận navCtr (NavController)
+            // tóm lại, các item của bottom đều sẽ nhận navHost, Home khác biệt sẽ nhận navCtr
+            startDestination = RouteNameScreen.Home.route,
             modifier = Modifier.padding(it)
         ) {
-            composable(Screen.Home.route) {
-                Home(navCtrl)
+            composable(RouteNameScreen.Home.route) {
+                HomeScreen(navCtrl)
             }
-            composable(Screen.Favorite.route) {
-                Favourite()
+            // Home sử dụng navCtrl là controller từ navControlller
+            composable(RouteNameScreen.Favorite.route) {
+                FavouriteScreen()
             }
-            composable(Screen.Notification.route) {
-                Notification()
+            composable(RouteNameScreen.Notification.route) {
+                NotificationScreen()
             }
-            composable(Screen.Profile.route) {
-                Profile()
+            composable(RouteNameScreen.Profile.route) {
+                ProfileScreen()
             }
         }
     }

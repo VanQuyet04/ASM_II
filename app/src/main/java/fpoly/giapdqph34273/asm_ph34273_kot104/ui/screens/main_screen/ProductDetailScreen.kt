@@ -1,4 +1,4 @@
-package fpoly.giapdqph34273.asm_ph34273_kot104
+package fpoly.giapdqph34273.asm_ph34273_kot104.ui.screens.main_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -36,11 +36,13 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.core.graphics.toColorInt
 import androidx.navigation.NavController
+import fpoly.giapdqph34273.asm_ph34273_kot104.R
+import fpoly.giapdqph34273.asm_ph34273_kot104.available.RouteNameScreen
 
 
 @Preview(showBackground = true)
 @Composable
-fun ProductDetail(navController: NavController? = null) {
+fun ProductDetailScreen(navController: NavController? = null) {
 
     Box {
         Box(
@@ -340,7 +342,7 @@ fun ProductDetail(navController: NavController? = null) {
 
                 Button(
                     onClick = {
-                        navController?.navigate(Screen.Cart.route)
+                        navController?.navigate(RouteNameScreen.Cart.route)
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color("#242424".toColorInt())

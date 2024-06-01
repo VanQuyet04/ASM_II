@@ -1,4 +1,4 @@
-package fpoly.giapdqph34273.asm_ph34273_kot104
+package fpoly.giapdqph34273.asm_ph34273_kot104.ui.screens.main_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -23,20 +23,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import androidx.navigation.NavController
+import fpoly.giapdqph34273.asm_ph34273_kot104.R
+import fpoly.giapdqph34273.asm_ph34273_kot104.available.RouteNameScreen
 
 @Composable
-fun Boarding(navController: NavController) {
-    preview(navController)
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun preview(navController: NavController? = null) {
+fun BoardingScreen(navController: NavController) {
     manHinhChao(navController)
 }
 
@@ -103,7 +98,7 @@ fun manHinhChao(navController: NavController? = null) {
             ) {
                 Button(
                     onClick = {
-                        navController?.navigate(Screen.Login.route)
+                        navController?.navigate(RouteNameScreen.Login.route)
                     },
                     colors = ButtonDefaults.buttonColors(
                         Color("#242424".toColorInt())

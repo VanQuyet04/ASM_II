@@ -1,4 +1,4 @@
-package fpoly.giapdqph34273.asm_ph34273_kot104
+package fpoly.giapdqph34273.asm_ph34273_kot104.ui.screens.main_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -41,21 +41,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import androidx.navigation.NavController
+import fpoly.giapdqph34273.asm_ph34273_kot104.R
+import fpoly.giapdqph34273.asm_ph34273_kot104.available.RouteNameScreen
 import kotlinx.coroutines.launch
 
 @Composable
-fun SignUp(navController: NavController) {
-    preview(navController)
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun preview(navController: NavController? = null) {
+fun SignUpScreen(navController: NavController) {
     getLayout(navController)
 }
 
@@ -249,7 +244,7 @@ private fun getLayout(navController: NavController? = null) {
                                 snackbarHostState.showSnackbar("Nhập lại mật khẩu sai")
                             }
                         } else {
-                            navController?.navigate(Screen.Login.route)
+                            navController?.navigate(RouteNameScreen.Login.route)
                         }
                     },
                     colors = ButtonDefaults.buttonColors(
@@ -310,7 +305,7 @@ private fun thanhNgangIcon() {
 private fun chuyenSangDangNhap(navController: NavController? = null) {
 
     TextButton(onClick = {
-        navController?.navigate(Screen.Login.route)
+        navController?.navigate(RouteNameScreen.Login.route)
     }) {
         Row {
             Text(

@@ -1,4 +1,4 @@
-package fpoly.giapdqph34273.asm_ph34273_kot104
+package fpoly.giapdqph34273.asm_ph34273_kot104.ui.screens.main_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -30,10 +30,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import androidx.navigation.NavController
+import fpoly.giapdqph34273.asm_ph34273_kot104.R
+import fpoly.giapdqph34273.asm_ph34273_kot104.available.RouteNameScreen
 
 @Composable
 @Preview(showBackground = true)
-fun Congrats(navController: NavController? = null) {
+fun CongratsScreen(navController: NavController? = null) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -127,7 +129,7 @@ fun Congrats(navController: NavController? = null) {
 
         Button(
             onClick = {
-                navController?.navigate(Screen.MyBottombar.route){
+                navController?.navigate(RouteNameScreen.MyBottombar.route){
                     popUpTo(0)
                 }
             },

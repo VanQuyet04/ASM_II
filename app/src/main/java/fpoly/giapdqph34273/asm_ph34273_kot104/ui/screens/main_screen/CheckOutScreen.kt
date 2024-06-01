@@ -1,4 +1,4 @@
-package fpoly.giapdqph34273.asm_ph34273_kot104
+package fpoly.giapdqph34273.asm_ph34273_kot104.ui.screens.main_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -34,10 +34,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import androidx.navigation.NavController
+import fpoly.giapdqph34273.asm_ph34273_kot104.R
+import fpoly.giapdqph34273.asm_ph34273_kot104.available.RouteNameScreen
 
 @Composable
 @Preview(showBackground = true)
-fun CheckOut(navController: NavController? = null) {
+fun CheckOutScreen(navController: NavController? = null) {
     Scaffold(
         topBar = {
             thanhTopbar(navController)
@@ -317,7 +319,7 @@ private fun tinhTien() {
 private fun checkOut(navController: NavController? = null) {
     Button(
         onClick = {
-            navController?.navigate(Screen.Congrats.route){
+            navController?.navigate(RouteNameScreen.Congrats.route){
                 popUpTo(0)
             }
         },
